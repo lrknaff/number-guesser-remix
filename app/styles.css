@@ -1,14 +1,3 @@
-#cec2c2: #cec2c2;
-#982292: #982292;
-rgba(255,255,255,0.4): rgba(255,255,255,0.4);
-
-@mixin light-font {
-  font-family: helvetica, sans-serif;
-  font-weight: 100;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
 body {
   background: #cec2c2;
   font-family: helvetica, sans-serif;
