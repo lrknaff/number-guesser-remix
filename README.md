@@ -2,7 +2,7 @@
 
 ### Goals of This Lesson
   - Build a basic web app from scratch using React
-  - Associated with [React in Theory SlideDeck](link.com)
+  - Associated with the React In Theory SlideDeck (not necessary for this lesson plan)
 
 ## There Are 2 Starting points to this lesson:
   1. If you want to build your app from scratch, start here and make sure you're in the branch `from-scratch`.
