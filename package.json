@@ -1,0 +1,44 @@
+{
+  "name": "react-in-theory",
+  "version": "1.0.0",
+  "description": "A tutorial for building a react app for Turing School",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --inline --hot",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martensonbj/react-in-theory.git"
+  },
+  "keywords": [
+    "react",
+    "webpack",
+    "npm",
+    "javascript"
+  ],
+  "author": "Brenna Martenson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/martensonbj/react-in-theory/issues"
+  },
+  "homepage": "https://github.com/martensonbj/react-in-theory#readme",
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "css-loader": "^0.25.0",
+    "html-webpack-plugin": "^2.22.0",
+    "node-sass": "^3.9.0",
+    "sass-loader": "^4.0.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.1"
+  },
+  "dependencies": {
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
+  }
+}
