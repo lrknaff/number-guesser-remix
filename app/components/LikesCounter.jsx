@@ -1,6 +1,6 @@
-const React = require('react')
-const ReactDOM = require('react-dom')
-const ActionButton = require('./ActionButton')
+const React = require('react');
+const ReactDOM = require('react-dom');
+const ActionButton = require('./GuessButton');
 
 class LikesCounter extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class LikesCounter extends React.Component {
   }
 
   addToLikesCount (num) {
-    this.setState( {count: this.state.count + num } )
+    this.setState( {count: this.state.count + num } );
   }
 
   render () {
