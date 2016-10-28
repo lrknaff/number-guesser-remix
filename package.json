@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/martensonbj/react-in-theory.git"
+    "url": "git+https://github.com/lrknaff/numberGuesser-remix"
   },
   "keywords": [
     "react",
@@ -18,12 +18,12 @@
     "npm",
     "javascript"
   ],
-  "author": "Brenna Martenson",
+  "author": "Lacey Knaff",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/martensonbj/react-in-theory/issues"
+    "url": "https://github.com/lrknaff/numberGuesser-remix/issues"
   },
-  "homepage": "https://github.com/martensonbj/react-in-theory#readme",
+  "homepage": "https://github.com/lrknaff/numberGuesser-remix#readme",
   "devDependencies": {
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
