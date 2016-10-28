@@ -1,2 +1,2 @@
-require('./main')
-require('./components/App')
+require('./main');
+require('./components/App');
