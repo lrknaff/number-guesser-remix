@@ -1,5 +1,5 @@
 // const React = require('react');
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 const ReactDOM = require('react-dom');
 const LikesCounter = require('./LikesCounter');
 import UserInput from './UserInput';

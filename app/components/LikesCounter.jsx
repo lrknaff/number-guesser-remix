@@ -1,6 +1,6 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
-const ActionButton = require('./GuessButton');
+// const ActionButton = require('./ActionButton');
 
 class LikesCounter extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class LikesCounter extends React.Component {
   }
 
   addToLikesCount (num) {
-    debugger
+    d
     this.setState( {count: this.state.count + num } );
   }
 
@@ -17,10 +17,6 @@ class LikesCounter extends React.Component {
     return (
       <div className="LikesCounter">
         <h3>Likes: {this.state.count}</h3>
-        <div className="ActionButtons">
-          <ActionButton text="Like! (+1)" handleClick={this.addToLikesCount.bind(this, 1)} />
-          <ActionButton text="Dislike! (-1)" handleClick={this.addToLikesCount.bind(this, -1)} />
-        </div>
       </div>
     )
   }

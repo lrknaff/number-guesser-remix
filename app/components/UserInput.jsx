@@ -1,5 +1,3 @@
-// import React, { Component } from 'react';
-// const ReactDOM = require('react-dom');
 const React = require('react');
 
 
@@ -7,24 +5,58 @@ class UserInput extends React.Component {
   constructor() {
     super();
     this.state = {
-      guess: '',
+      randomNumber: '',
+      guessInput: '',
+      guess: ''
     };
   }
 
+  generateRandomNumber() {
+
+  }
+
   handleUserInput(e) {
-    this.setState( { guess: e.target.value } );
+    this.setState( { guessInput: e.target.value } );
+  }
+
+  handleGuessClick() {
+    this.setState({ guess: this.state.guessInput });
+  }
+
+  handleClearClick() {
+    this.setState({ guessInput: '' });
+  }
+
+  compareGuess() {
+
   }
 
   render() {
     return (
-      <form className='guess-input-container'>
+      <div className='guess-input-container'>
+        <h3>
+          Youre last guess was:<br />
+          {this.state.guess}
+        </h3>
+
         <input
           type='number'
           className='guess-input-field'
-          value={this.state.guess}
-          onChange={this.handleUserInput.bind(this)}
-        />
-      </form>
+          value={this.state.guessInput}
+          onChange={this.handleUserInput.bind(this)}/>
+
+        <button
+          className="GuessButton"
+          onClick={this.handleGuessClick.bind(this)}>
+          Guess
+        </button>
+
+        <button
+          className="ClearButton"
+          onClick={this.handleClearClick.bind(this)}>
+          Clear
+        </button>
+      </div>
     )
   }
 
