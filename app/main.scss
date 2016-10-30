@@ -37,6 +37,9 @@ button {
       background: darken($button-background, 20);
       cursor: pointer;
     }
+    &:disabled {
+      background: $button-background;
+    }
 }
 
 .LikesCounter {

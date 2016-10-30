@@ -55,13 +55,15 @@ class UserInput extends React.Component {
 
         <button
           className="GuessButton"
-          onClick={this.handleGuessClick.bind(this)}>
+          onClick={this.handleGuessClick.bind(this)}
+          disabled={this.state.guessInput === '' ? true : false}>
           Guess
         </button>
 
         <button
           className="ClearButton"
-          onClick={this.handleClearClick.bind(this)}>
+          onClick={this.handleClearClick.bind(this)}
+          disabled={this.state.guessInput === '' ? true : false}>
           Clear
         </button>
 
