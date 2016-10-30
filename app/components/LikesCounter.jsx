@@ -9,6 +9,7 @@ class LikesCounter extends React.Component {
   }
 
   addToLikesCount (num) {
+    debugger
     this.setState( {count: this.state.count + num } );
   }
 

@@ -1,13 +1,18 @@
-const React = require('react');
+// const React = require('react');
+import React, { Component } from 'react';
 const ReactDOM = require('react-dom');
 const LikesCounter = require('./LikesCounter');
+import UserInput from './UserInput';
 
-class App extends React.Component {
+var App = React.createClass ({
   render () {
     return (
-      <LikesCounter initialCount={0}/>
+      <div>
+        <UserInput />
+        <LikesCounter initialCount={0}/>
+      </div>
     )
   }
-}
+});
 
 ReactDOM.render( <App />, document.getElementById('application'))
