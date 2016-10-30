@@ -27,7 +27,15 @@ class UserInput extends React.Component {
     this.setState({ guessInput: '' });
   }
 
+  handleResetClick() {
+    this.setState({ guessInput: '', guess: '', randomNumber: '' })
+  }
+
   compareGuess() {
+
+  }
+
+  displayMessage() {
 
   }
 
@@ -55,6 +63,12 @@ class UserInput extends React.Component {
           className="ClearButton"
           onClick={this.handleClearClick.bind(this)}>
           Clear
+        </button>
+
+        <button
+          className="ResetButton"
+          onClick={this.handleResetClick.bind(this)}>
+          Reset
         </button>
       </div>
     )
