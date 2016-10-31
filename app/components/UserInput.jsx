@@ -22,6 +22,14 @@ class UserInput extends React.Component {
     this.setState({ randomNumber: randomNumber });
   }
 
+  generateNewRandomNumber(min, max) {
+    let userGuess = parseInt(this.state.guessInput);
+    let newRandomNumber = Math.floor(Math.random() * (max - min) + min);
+
+    userGuess === this.state.randomNumber? this.setState({ randomNumber: newRandomNumber}) :
+    this.setState({ randomNumber: this.state.randomNumber })
+  }
+
   handleUserInput(e) {
     this.setState( { guessInput: e.target.value } );
   }
@@ -31,6 +39,7 @@ class UserInput extends React.Component {
     this.displayMessage();
     this.increaseMax();
     this.decreaseMin();
+    this.generateNewRandomNumber(this.state.min, this.state.max);
   }
 
   handleClearClick() {
@@ -44,9 +53,13 @@ class UserInput extends React.Component {
 
   displayMessage() {
     let userGuess = parseInt(this.state.guessInput);
+    let min = this.state.min;
+    let max = this.state.max;
 
+    userGuess > max ? this.setState({ message: 'Guess a number between ' + min + ' and ' + max }) :
+    userGuess < min ? this.setState({ message: 'Guess a number between ' + min + ' and ' + max }) :
     userGuess === this.state.randomNumber ? this.setState({ message: 'Correct!' }) :
-    userGuess > this.state.randomNumber ? this.setState({ message: 'Too high. Try again.'}) :
+    userGuess > this.state.randomNumber ? this.setState({ message: 'Too high. Try again.' }) :
     this.setState({ message: 'Too low. Try again.' })
   }
 
@@ -102,7 +115,8 @@ class UserInput extends React.Component {
 
         <button
           className="ResetButton"
-          onClick={this.handleResetClick.bind(this)}>
+          onClick={this.handleResetClick.bind(this)}
+          disabled={this.state.min === 0 ? true : false}>
           Reset
         </button>
       </div>
