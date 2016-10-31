@@ -7,7 +7,7 @@ const UserMinAndMax = ({min, max, handleMinInput, handleMaxInput}) => {
         className='min-input'
         type='number'
         placeholder={min}
-        // onChange={handleMinInput}
+        onChange={(e) => handleMinInput(e)}
         />
       <input
         className='max-input'

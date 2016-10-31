@@ -35,9 +35,10 @@ class UserInput extends React.Component {
     this.setState( { guessInput: e.target.value } );
   }
 
-  // handleMinInput(e) {
-  //   this.setState( { min: e.target.value } );
-  // }
+  handleMinInput(e) {
+    const userMin = parseInt(e.target.value);
+    this.setState( { min: userMin } );
+  }
 
   handleGuessClick() {
     this.setState({ guess: this.state.guessInput, guessInput: '' });
@@ -73,7 +74,7 @@ class UserInput extends React.Component {
     let largerMax = this.state.max + 10;
     let userGuess = parseInt(this.state.guessInput);
 
-    userGuess === this.state.randomNumber? this.setState({ max: largerMax}) :
+    userGuess === this.state.randomNumber ? this.setState({ max: largerMax }) :
     this.setState({ max: this.state.max })
   }
 
@@ -81,7 +82,7 @@ class UserInput extends React.Component {
     let smallerMin = this.state.min - 10;
     let userGuess = parseInt(this.state.guessInput);
 
-    userGuess === this.state.randomNumber? this.setState({ min: smallerMin}) :
+    userGuess === this.state.randomNumber? this.setState({ min: smallerMin }) :
     this.setState({ min: this.state.min })
   }
 
@@ -92,7 +93,7 @@ class UserInput extends React.Component {
         <UserMinAndMax
           min={this.state.min}
           max={this.state.max}
-          // onChange={this.handleMinInput.bind(this)}
+          handleMinInput={this.handleMinInput.bind(this)}
          />
 
         <h3>
