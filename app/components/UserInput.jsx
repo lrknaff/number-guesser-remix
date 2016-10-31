@@ -1,4 +1,5 @@
 const React = require('react');
+import UserMinAndMax from './UserMinAndMax';
 
 
 class UserInput extends React.Component {
@@ -83,6 +84,8 @@ class UserInput extends React.Component {
   render() {
     return (
       <div className='guess-input-container'>
+        <UserMinAndMax onChange={this.}/>
+
         <h3>
           Youre last guess was:<br />
           {this.state.guess}
