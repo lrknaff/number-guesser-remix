@@ -31,8 +31,6 @@ class UserInput extends React.Component {
     this.displayMessage();
     this.increaseMax();
     this.decreaseMin();
-
-    
   }
 
   handleClearClick() {
@@ -64,8 +62,8 @@ class UserInput extends React.Component {
     let smallerMin = this.state.min - 10;
     let userGuess = parseInt(this.state.guessInput);
 
-    userGuess === this.state.randomNumber? this.setState({ max: smallerMin}) :
-    this.setState({ max: this.state.max })
+    userGuess === this.state.randomNumber? this.setState({ min: smallerMin}) :
+    this.setState({ min: this.state.min })
   }
 
 
