@@ -7,12 +7,14 @@ class UserInput extends React.Component {
     this.state = {
       randomNumber: '',
       guessInput: '',
-      guess: ''
+      guess: '',
+      min: 0,
+      max: 10,
     };
   }
 
   componentDidMount() {
-    this.generateRandomNumber(0, 10);
+    this.generateRandomNumber(this.state.min, this.state.max);
   }
 
   generateRandomNumber(min, max) {
@@ -34,7 +36,8 @@ class UserInput extends React.Component {
   }
 
   handleResetClick() {
-    this.setState({ guessInput: '', guess: '', randomNumber: '' })
+    let randomNumber = Math.floor(Math.random() * (10 - 0) + 0);
+    this.setState({ guessInput: '', guess: '', randomNumber: randomNumber, message: '', min: 0, max: 10 });
   }
 
 
@@ -42,8 +45,8 @@ class UserInput extends React.Component {
     let userGuess = parseInt(this.state.guessInput);
 
     userGuess === this.state.randomNumber ? this.setState({ message: 'Correct!' }) :
-    userGuess > this.state.randomNumber ? this.setState({ message: 'Too high. Try again!'}) :
-    this.setState({ message: 'Too low. Try again!' })
+    userGuess > this.state.randomNumber ? this.setState({ message: 'Too high. Try again.'}) :
+    this.setState({ message: 'Too low. Try again.' })
   }
 
   render() {
@@ -62,7 +65,8 @@ class UserInput extends React.Component {
           type='number'
           className='guess-input-field'
           value={this.state.guessInput}
-          onChange={this.handleUserInput.bind(this)}/>
+          onChange={this.handleUserInput.bind(this)}
+          placeholder="You're best guess" />
 
         <button
           className="GuessButton"
