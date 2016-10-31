@@ -29,6 +29,10 @@ class UserInput extends React.Component {
   handleGuessClick() {
     this.setState({ guess: this.state.guessInput });
     this.displayMessage();
+    this.increaseMax();
+    this.decreaseMin();
+
+    
   }
 
   handleClearClick() {
@@ -40,7 +44,6 @@ class UserInput extends React.Component {
     this.setState({ guessInput: '', guess: '', randomNumber: randomNumber, message: '', min: 0, max: 10 });
   }
 
-
   displayMessage() {
     let userGuess = parseInt(this.state.guessInput);
 
@@ -48,6 +51,23 @@ class UserInput extends React.Component {
     userGuess > this.state.randomNumber ? this.setState({ message: 'Too high. Try again.'}) :
     this.setState({ message: 'Too low. Try again.' })
   }
+
+  increaseMax() {
+    let largerMax = this.state.max + 10;
+    let userGuess = parseInt(this.state.guessInput);
+
+    userGuess === this.state.randomNumber? this.setState({ max: largerMax}) :
+    this.setState({ max: this.state.max })
+  }
+
+  decreaseMin() {
+    let smallerMin = this.state.min - 10;
+    let userGuess = parseInt(this.state.guessInput);
+
+    userGuess === this.state.randomNumber? this.setState({ max: smallerMin}) :
+    this.setState({ max: this.state.max })
+  }
+
 
   render() {
     return (
