@@ -1,17 +1,19 @@
 const React = require('react');
 
-const UserMinAndMax = ({min, max, setNewMinAndMax}) => {
+const UserMinAndMax = ({min, max, handleMinInput, handleMaxInput}) => {
   return (
     <section className='custom-max-min'>
       <input
+        className='min-input'
         type='number'
         placeholder={min}
-        onChange={setNewMinAndMax}
+        // onChange={handleMinInput}
         />
       <input
+        className='max-input'
         type='number'
         placeholder={max}
-        onChange={setNewMinAndMax}
+        // onChange={handleMaxInput}
         />
     </section>
   )
