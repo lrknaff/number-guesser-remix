@@ -36,7 +36,7 @@ class UserInput extends React.Component {
   }
 
   handleGuessClick() {
-    this.setState({ guess: this.state.guessInput });
+    this.setState({ guess: this.state.guessInput, guessInput: '' });
     this.displayMessage();
     this.increaseMax();
     this.decreaseMin();
@@ -83,8 +83,11 @@ class UserInput extends React.Component {
 
   render() {
     return (
-      <div className='guess-input-container'>
-        <UserMinAndMax onChange={this.}/>
+      <main className='container'>
+        <UserMinAndMax
+          min={this.state.min}
+          max={this.state.max}
+         />
 
         <h3>
           Youre last guess was:<br />
@@ -122,7 +125,7 @@ class UserInput extends React.Component {
           disabled={this.state.min === 0 ? true : false}>
           Reset
         </button>
-      </div>
+      </main>
     )
   }
 
