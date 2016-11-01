@@ -1,26 +1,48 @@
-$main-background: #cec2c2;
+@import 'reset.scss';
+
+$background-left: #F92E47;
+$background-right: #3F283D;
+$white: #FFF;
 $button-background: #982292;
 $faded-background: rgba(255,255,255,0.4);
+$number-font: 'Arvo', serif;
 
 @mixin light-font {
-  font-family: helvetica, sans-serif;
-  font-weight: 100;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  font-family: 'Arvo', sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
 }
 
 body {
-  background: $main-background;
   @include light-font;
+}
+
+#application {
+  background: linear-gradient(
+    to right,
+    $background-left 50%,
+    $background-right 50%
+  );
+  height: 100vh;
 }
 
 h3 {
     position: relative;
-    top: 50px;
+    top: 25vh;
     font-weight: 100;
     font-size: 30px;
-    color: #5a5959;
+    color: $white;
     text-align: center;
+}
+
+h3.min-max-text {
+  color: $background-right;
+  margin-left: 8%;
+}
+
+h3.last-guess-text {
+  color: $background-left;
+  margin-right: 8%;
 }
 
 button {
@@ -28,28 +50,64 @@ button {
     border-radius: 2px;
     outline: none;
     border: none;
-    background: $button-background;
+    background: $background-right;
     color: white;
     margin: 10px;
     width: 100px;
     @include light-font;
     &:hover {
-      background: darken($button-background, 20);
+      background: $background-left;
       cursor: pointer;
     }
     &:disabled {
-      background: $button-background;
+      background: $background-right;
     }
 }
 
-.LikesCounter {
-  height: 300px;
-  width: 300px;
-  margin: 78px auto;
-  background: $faded-background;
+.right-container {
+  float: right;
+  width: 45%;
+  height: 100vh;
+}
+
+.left-container {
+  float: left;
+  width: 45%;
+  height: 100vh;
 }
 
 .ActionButtons {
   width: 240px;
   margin: 100px auto 0 auto;
+}
+
+.number-guess {
+  color: $white;
+  font-family: $number-font;
+  font-size: 8em;
+  font-weight: 700;
+  margin-right: 8%;
+  position: relative;
+  top: 30vh;
+  text-align: center;
+}
+
+.message-text {
+  color: $background-left;
+  font-size: 1.3em;
+  position: relative;
+  top: 33vh;
+  text-align: center;
+  margin-right: 8%;
+}
+
+.guess-input-field {
+  float: left;
+  position: relative;
+  top: 30vh;
+  margin-left: 15%;
+  width: 35%;
+  height: 33px;
+  padding: 10px;
+  border: 1px solid #CCC;
 }

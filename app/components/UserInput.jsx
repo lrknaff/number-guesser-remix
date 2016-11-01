@@ -11,6 +11,8 @@ class UserInput extends React.Component {
       guess: '',
       min: 0,
       max: 10,
+      userMin: '',
+      userMax: ''
     };
   }
 
@@ -27,7 +29,7 @@ class UserInput extends React.Component {
     let userGuess = parseInt(this.state.guessInput);
     let newRandomNumber = Math.floor(Math.random() * (max - min) + min);
 
-    userGuess === this.state.randomNumber? this.setState({ randomNumber: newRandomNumber}) :
+    userGuess === this.state.randomNumber ? this.setState({ randomNumber: newRandomNumber}) :
     this.setState({ randomNumber: this.state.randomNumber })
   }
 
@@ -35,10 +37,21 @@ class UserInput extends React.Component {
     this.setState( { guessInput: e.target.value } );
   }
 
-  handleMinInput(e) {
-    const userMin = parseInt(e.target.value);
-    this.setState( { min: userMin } );
-  }
+  // handleMinInput(e) {
+  //   const userMin = parseInt(e.target.value);
+  //   this.setState({ userMin: userMin });
+  // }
+  //
+  // handleMaxInput(e) {
+  //   const userMax = parseInt(e.target.value);
+  //   this.setState({ userMax: userMax });
+  // }
+
+  // handleMinMaxClick () {
+  //   this.setState({ min: this.state.userMin, max: this.state.userMax });
+  //
+  //   this.generateRandomNumber(this.state.min, this.state.max);
+  // }
 
   handleGuessClick() {
     this.setState({ guess: this.state.guessInput, guessInput: '' });
@@ -88,50 +101,63 @@ class UserInput extends React.Component {
 
 
   render() {
+
     return (
       <main className='container'>
-        <UserMinAndMax
-          min={this.state.min}
-          max={this.state.max}
+        {/* <UserMinAndMax
+          userMin={this.state.UserMin}
+          userMax={this.state.UserMax}
           handleMinInput={this.handleMinInput.bind(this)}
-         />
+          handleMaxInput={this.handleMaxInput.bind(this)}
+          handleMinMaxClick={this.handleMinMaxClick.bind(this)}
+         /> */}
+        <div className='right-container'>
+          <h3 className='last-guess-text'>
+            Your last guess was:<br />
+          </h3>
 
-        <h3>
-          Youre last guess was:<br />
-          {this.state.guess}
-        </h3>
+          <h2 className='number-guess'>
+            {this.state.guess}
+          </h2>
 
-        <h4>
-          {this.state.message}
-        </h4>
+          <h4 className='message-text'>
+            {this.state.message}
+          </h4>
+        </div>
 
-        <input
-          type='number'
-          className='guess-input-field'
-          value={this.state.guessInput}
-          onChange={this.handleUserInput.bind(this)}
-          placeholder="You're best guess" />
+        <div className='left-container'>
+         <h3 className='min-max-text'>
+           Guess a number between {this.state.min} and {this.state.max}
+         </h3>
 
-        <button
-          className="GuessButton"
-          onClick={this.handleGuessClick.bind(this)}
-          disabled={this.state.guessInput === '' ? true : false}>
-          Guess
-        </button>
+          <input
+            type='number'
+            className='guess-input-field'
+            value={this.state.guessInput}
+            onChange={this.handleUserInput.bind(this)}
+            placeholder="You're best guess" />
 
-        <button
-          className="ClearButton"
-          onClick={this.handleClearClick.bind(this)}
-          disabled={this.state.guessInput === '' ? true : false}>
-          Clear
-        </button>
+          <button
+            className="GuessButton"
+            onClick={this.handleGuessClick.bind(this)}
+            disabled={this.state.guessInput === '' ? true : false}>
+            Guess
+          </button>
 
-        <button
-          className="ResetButton"
-          onClick={this.handleResetClick.bind(this)}
-          disabled={this.state.min === 0 ? true : false}>
-          Reset
-        </button>
+          <button
+            className="ClearButton"
+            onClick={this.handleClearClick.bind(this)}
+            disabled={this.state.guessInput === '' ? true : false}>
+            Clear
+          </button>
+
+          <button
+            className="ResetButton"
+            onClick={this.handleResetClick.bind(this)}
+            disabled={this.state.min === 0 ? true : false}>
+            Reset
+          </button>
+        </div>
       </main>
     )
   }
