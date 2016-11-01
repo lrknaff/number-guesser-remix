@@ -37,21 +37,18 @@ class UserInput extends React.Component {
     this.setState( { guessInput: e.target.value } );
   }
 
-  // handleMinInput(e) {
-  //   const userMin = parseInt(e.target.value);
-  //   this.setState({ userMin: userMin });
-  // }
-  //
-  // handleMaxInput(e) {
-  //   const userMax = parseInt(e.target.value);
-  //   this.setState({ userMax: userMax });
-  // }
+  handleMinInput(e) {
+    this.setState({ userMin: e.target.value });
+  }
 
-  // handleMinMaxClick () {
-  //   this.setState({ min: this.state.userMin, max: this.state.userMax });
-  //
-  //   this.generateRandomNumber(this.state.min, this.state.max);
-  // }
+  handleMaxInput(e) {
+    this.setState({ userMax: e.target.value });
+  }
+
+  handleMinMaxClick () {
+    this.setState({ min: this.state.userMin, max: this.state.userMax });
+    this.generateRandomNumber(this.state.min, this.state.max);
+  }
 
   handleGuessClick() {
     this.setState({ guess: this.state.guessInput, guessInput: '' });
@@ -110,6 +107,8 @@ class UserInput extends React.Component {
           handleMinInput={this.handleMinInput.bind(this)}
           handleMaxInput={this.handleMaxInput.bind(this)}
           handleMinMaxClick={this.handleMinMaxClick.bind(this)}
+          disabled={this.state.UserMin === '' ? true :
+                                                false}
          /> */}
         <div className='right-container'>
           <h3 className='last-guess-text'>
