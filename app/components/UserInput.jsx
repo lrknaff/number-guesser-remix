@@ -16,22 +16,12 @@ class UserInput extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.setState({ randomNumber: this.generateRandomNumber() })
-  }
-
   generateRandomNumber(min = 0, max = 10) {
     return Math.floor(Math.random() * (max - min) + min);
-    // let randomNumber = Math.floor(Math.random() * (max - min) + min);
-    // this.setState({ randomNumber: randomNumber });
   }
 
-  generateNewRandomNumber(min, max) {
-    let userGuess = parseInt(this.state.guessInput);
-    let newRandomNumber = Math.floor(Math.random() * (max - min) + min);
-
-    userGuess === this.state.randomNumber ? this.setState({ randomNumber: newRandomNumber}) :
-    this.setState({ randomNumber: this.state.randomNumber })
+  componentDidMount() {
+    this.setState({ randomNumber: this.generateRandomNumber() });
   }
 
   handleUserInput(e) {
@@ -39,31 +29,24 @@ class UserInput extends React.Component {
   }
 
   handleRangeInput(e) {
-    // let name = e.target.name;
-    // let value = e.target.value;
     let { name, value } = e.target;
     this.setState({ [name]: value });
   }
 
-  // handleMinInput(e) {
-  //   this.setState({ userMin: e.target.value });
-  // }
-  //
-  // handleMaxInput(e) {
-  //   this.setState({ userMax: e.target.value });
-  // }
-
-  handleMinMaxClick () {
-    this.setState({ min: this.state.userMin, max: this.state.userMax });
+  handleRangeClick () {
+    this.setState({
+      min: this.state.userMin,
+      max: this.state.userMax
+    });
     this.generateRandomNumber(this.state.min, this.state.max);
   }
 
   handleGuessClick() {
-    this.setState({ guess: this.state.guessInput, guessInput: '' });
+    this.setState({
+      guess: this.state.guessInput,
+      guessInput: ''
+    });
     this.displayMessage();
-    this.increaseMax();
-    this.decreaseMin();
-    this.generateNewRandomNumber(this.state.min, this.state.max);
   }
 
   handleClearClick() {
@@ -71,57 +54,66 @@ class UserInput extends React.Component {
   }
 
   handleResetClick() {
-    let randomNumber = Math.floor(Math.random() * (10 - 0) + 0);
-    this.setState({ guessInput: '', guess: '', randomNumber: randomNumber, message: '', min: 0, max: 10 });
+    this.setState({
+      guessInput: '',
+      guess: '',
+      randomNumber: this.generateRandomNumber(),
+      message: '',
+      min: 0,
+      max: 10
+    });
   }
-
 
   displayMessage() {
     let userGuess = parseInt(this.state.guessInput);
     let min = this.state.min;
     let max = this.state.max;
 
-    userGuess > max ? this.setState({ message: 'Guess a number between ' + min + ' and ' + max }) :
-    userGuess < min ? this.setState({ message: 'Guess a number between ' + min + ' and ' + max }) :
-    userGuess === this.state.randomNumber ? this.setState({ message: 'Correct!', min: min -= 10, max: max += 10, randomNumber: this.generateRandomNumber(min, max) }) :
-    userGuess > this.state.randomNumber ? this.setState({ message: 'Too high. Try again.' }) :
-    this.setState({ message: 'Too low. Try again.' })
+    if ( userGuess > max || userGuess < min) {
+      this.setState({
+        message: 'Guess a number between ' + min + ' and ' + max
+      });
+    }
+    if ( userGuess === this.state.randomNumber ) {
+      this.setState({
+        message: 'Correct!',
+        min: min -= 10,
+        max: max += 10,
+        randomNumber: this.generateRandomNumber(min, max)
+      });
+    } else if ( userGuess > this.state.randomNumber ) {
+      this.setState ({
+        message: 'Too high. Try again.'
+      });
+    } else {
+      this.setState ({
+        message: 'Too low. Try again.'
+      });
+    }
   }
-  // if guess >  randomNumber -----something
-  // else if guess < randomNumber ----- something
-  // its correct
 
-
-  // increaseMax() {
-  //   let largerMax = this.state.max + 10;
-  //   let userGuess = parseInt(this.state.guessInput);
-  //
-  //   userGuess === this.state.randomNumber ? this.setState({ max: largerMax }) :
-  //   this.setState({ max: this.state.max })
-  // }
-  //
-  // decreaseMin() {
-  //   let smallerMin = this.state.min - 10;
-  //   let userGuess = parseInt(this.state.guessInput);
-  //
-  //   userGuess === this.state.randomNumber? this.setState({ min: smallerMin }) :
-  //   this.setState({ min: this.state.min })
-  // }
-
+  disableButton() {
+    if ( this.state.userMin === '' || this.state.userMax === '' ) {
+      return true
+    } else {
+      return false
+    }
+  }
 
   render() {
 
     return (
       <main className='container'>
-        <UserMinAndMax
-          userMin={this.state.UserMin}
-          userMax={this.state.UserMax}
-          handleRangeInput={this.handleRangeInput.bind(this)}
-          handleMinMaxClick={this.handleMinMaxClick.bind(this)}
-          disabled={this.state.UserMin === '' ? true :
-                                                false}
-         />
+
         <div className='right-container'>
+          <UserMinAndMax
+            userMin={this.state.UserMin}
+            userMax={this.state.UserMax}
+            handleRangeInput={this.handleRangeInput.bind(this)}
+            handleRangeClick={this.handleRangeClick.bind(this)}
+            disabled={this.disableButton()}
+           />
+
           <h3 className='last-guess-text'>
             Your last guess was:<br />
           </h3>

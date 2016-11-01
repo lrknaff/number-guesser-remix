@@ -1,6 +1,6 @@
 const React = require('react');
 
-const UserMinAndMax = ({ handleRangeInput, handleMinMaxClick, userMin, userMax, disabled }) => {
+const UserMinAndMax = ({ handleRangeInput, handleRangeClick, userMin, userMax, disabled }) => {
   return (
     <section className='custom-max-min'>
       <input
@@ -19,7 +19,7 @@ const UserMinAndMax = ({ handleRangeInput, handleMinMaxClick, userMin, userMax, 
         />
       <button
         className='submit-max-min-button'
-        onClick={handleMinMaxClick}
+        onClick={handleRangeClick}
         disabled={disabled}
         >
         Submit
