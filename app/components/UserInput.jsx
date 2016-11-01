@@ -39,7 +39,7 @@ class UserInput extends React.Component {
       max: this.state.userMax,
       userMax: '',
       userMin: '',
-      randomNumber: this.generateRandomNumber(),
+      randomNumber: this.generateRandomNumber(this.state.min, this.state.max)
     });
   }
 
@@ -142,26 +142,28 @@ class UserInput extends React.Component {
             onChange={this.handleUserInput.bind(this)}
             placeholder="You're best guess" />
 
-          <button
-            className="GuessButton"
-            onClick={this.handleGuessClick.bind(this)}
-            disabled={this.state.guessInput === '' ? true : false}>
-            Guess
-          </button>
+          <section className='buttons'>
+            <button
+              className="GuessButton"
+              onClick={this.handleGuessClick.bind(this)}
+              disabled={this.state.guessInput === '' ? true : false}>
+              Guess
+            </button>
 
-          <button
-            className="ClearButton"
-            onClick={this.handleClearClick.bind(this)}
-            disabled={this.state.guessInput === '' ? true : false}>
-            Clear
-          </button>
+            <button
+              className="ClearButton"
+              onClick={this.handleClearClick.bind(this)}
+              disabled={this.state.guessInput === '' ? true : false}>
+              Clear
+            </button>
 
-          <button
-            className="ResetButton"
-            onClick={this.handleResetClick.bind(this)}
-            disabled={this.state.min === 0 ? true : false}>
-            Reset
-          </button>
+            <button
+              className="ResetButton"
+              onClick={this.handleResetClick.bind(this)}
+              disabled={this.state.min === 0 ? true : false}>
+              Reset
+            </button>
+          </section>
         </div>
       </main>
     )

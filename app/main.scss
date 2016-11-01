@@ -47,14 +47,14 @@ h3.last-guess-text {
 
 button {
     position: relative;
-    padding: 20px;
+    padding: 17px;
     font-size: 0.8em;
     border-radius: 2px;
     outline: none;
     border: none;
     background: $background-right;
     color: white;
-    margin: 10px;
+    margin: 10px 7px;
     width: 100px;
     @include light-font;
     &:hover {
@@ -67,11 +67,6 @@ button {
       cursor: auto;
       box-shadow: none;
     }
-}
-
-.GuessButton {
-  top: 35vh;
-  margin: 0 auto;
 }
 
 .right-container {
@@ -97,12 +92,16 @@ button {
   text-align: center;
 }
 
-.ClearButton, .ResetButton {
-  top: 42vh;
+.buttons {
+  position: relative;
+  margin-top: 50vh;
+  margin-left: 8%;
+  text-align: center;
 }
 
-.ClearButton {
-  margin-left: 31%;
+.GuessButton {
+  display: block;
+  margin: 0 auto;
 }
 
 .message-text {
@@ -120,8 +119,8 @@ button {
   float: left;
   position: relative;
   top: 35vh;
-  margin-left: 24%;
-  width: 35%;
+  margin-left: 28%;
+  width: 45%;
   height: 33px;
   padding: 10px;
   border: 1px solid #CCC;
