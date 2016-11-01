@@ -6,7 +6,7 @@ class UserInput extends React.Component {
   constructor() {
     super();
     this.state = {
-      randomNumber: '',
+      randomNumber: 0,
       guessInput: '',
       guess: '',
       min: 0,
@@ -17,12 +17,13 @@ class UserInput extends React.Component {
   }
 
   componentDidMount() {
-    this.generateRandomNumber(this.state.min, this.state.max);
+    this.setState({ randomNumber: this.generateRandomNumber() })
   }
 
-  generateRandomNumber(min, max) {
-    let randomNumber = Math.floor(Math.random() * (max - min) + min);
-    this.setState({ randomNumber: randomNumber });
+  generateRandomNumber(min = 0, max = 10) {
+    return Math.floor(Math.random() * (max - min) + min);
+    // let randomNumber = Math.floor(Math.random() * (max - min) + min);
+    // this.setState({ randomNumber: randomNumber });
   }
 
   generateNewRandomNumber(min, max) {
@@ -37,13 +38,20 @@ class UserInput extends React.Component {
     this.setState( { guessInput: e.target.value } );
   }
 
-  handleMinInput(e) {
-    this.setState({ userMin: e.target.value });
+  handleRangeInput(e) {
+    // let name = e.target.name;
+    // let value = e.target.value;
+    let { name, value } = e.target;
+    this.setState({ [name]: value });
   }
 
-  handleMaxInput(e) {
-    this.setState({ userMax: e.target.value });
-  }
+  // handleMinInput(e) {
+  //   this.setState({ userMin: e.target.value });
+  // }
+  //
+  // handleMaxInput(e) {
+  //   this.setState({ userMax: e.target.value });
+  // }
 
   handleMinMaxClick () {
     this.setState({ min: this.state.userMin, max: this.state.userMax });
@@ -75,41 +83,44 @@ class UserInput extends React.Component {
 
     userGuess > max ? this.setState({ message: 'Guess a number between ' + min + ' and ' + max }) :
     userGuess < min ? this.setState({ message: 'Guess a number between ' + min + ' and ' + max }) :
-    userGuess === this.state.randomNumber ? this.setState({ message: 'Correct!' }) :
+    userGuess === this.state.randomNumber ? this.setState({ message: 'Correct!', min: min -= 10, max: max += 10, randomNumber: this.generateRandomNumber(min, max) }) :
     userGuess > this.state.randomNumber ? this.setState({ message: 'Too high. Try again.' }) :
     this.setState({ message: 'Too low. Try again.' })
   }
+  // if guess >  randomNumber -----something
+  // else if guess < randomNumber ----- something
+  // its correct
 
-  increaseMax() {
-    let largerMax = this.state.max + 10;
-    let userGuess = parseInt(this.state.guessInput);
 
-    userGuess === this.state.randomNumber ? this.setState({ max: largerMax }) :
-    this.setState({ max: this.state.max })
-  }
-
-  decreaseMin() {
-    let smallerMin = this.state.min - 10;
-    let userGuess = parseInt(this.state.guessInput);
-
-    userGuess === this.state.randomNumber? this.setState({ min: smallerMin }) :
-    this.setState({ min: this.state.min })
-  }
+  // increaseMax() {
+  //   let largerMax = this.state.max + 10;
+  //   let userGuess = parseInt(this.state.guessInput);
+  //
+  //   userGuess === this.state.randomNumber ? this.setState({ max: largerMax }) :
+  //   this.setState({ max: this.state.max })
+  // }
+  //
+  // decreaseMin() {
+  //   let smallerMin = this.state.min - 10;
+  //   let userGuess = parseInt(this.state.guessInput);
+  //
+  //   userGuess === this.state.randomNumber? this.setState({ min: smallerMin }) :
+  //   this.setState({ min: this.state.min })
+  // }
 
 
   render() {
 
     return (
       <main className='container'>
-        {/* <UserMinAndMax
+        <UserMinAndMax
           userMin={this.state.UserMin}
           userMax={this.state.UserMax}
-          handleMinInput={this.handleMinInput.bind(this)}
-          handleMaxInput={this.handleMaxInput.bind(this)}
+          handleRangeInput={this.handleRangeInput.bind(this)}
           handleMinMaxClick={this.handleMinMaxClick.bind(this)}
           disabled={this.state.UserMin === '' ? true :
                                                 false}
-         /> */}
+         />
         <div className='right-container'>
           <h3 className='last-guess-text'>
             Your last guess was:<br />
