@@ -46,7 +46,9 @@ h3.last-guess-text {
 }
 
 button {
+    position: relative;
     padding: 20px;
+    font-size: 0.8em;
     border-radius: 2px;
     outline: none;
     border: none;
@@ -56,12 +58,20 @@ button {
     width: 100px;
     @include light-font;
     &:hover {
-      background: $background-left;
       cursor: pointer;
+      box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
     }
     &:disabled {
       background: $background-right;
+      color: $white;
+      cursor: auto;
+      box-shadow: none;
     }
+}
+
+.GuessButton {
+  top: 35vh;
+  margin: 0 auto;
 }
 
 .right-container {
@@ -76,11 +86,6 @@ button {
   height: 100vh;
 }
 
-.ActionButtons {
-  width: 240px;
-  margin: 100px auto 0 auto;
-}
-
 .number-guess {
   color: $white;
   font-family: $number-font;
@@ -90,6 +95,14 @@ button {
   position: relative;
   top: 30vh;
   text-align: center;
+}
+
+.ClearButton, .ResetButton {
+  top: 42vh;
+}
+
+.ClearButton {
+  margin-left: 31%;
 }
 
 .message-text {
@@ -102,10 +115,12 @@ button {
 }
 
 .guess-input-field {
+  font-family: $number-font;
+  font-size: 1em;
   float: left;
   position: relative;
-  top: 30vh;
-  margin-left: 15%;
+  top: 35vh;
+  margin-left: 24%;
   width: 35%;
   height: 33px;
   padding: 10px;
