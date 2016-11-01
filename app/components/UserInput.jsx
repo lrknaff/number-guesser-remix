@@ -36,9 +36,11 @@ class UserInput extends React.Component {
   handleRangeClick () {
     this.setState({
       min: this.state.userMin,
-      max: this.state.userMax
+      max: this.state.userMax,
+      userMax: '',
+      userMin: '',
+      randomNumber: this.generateRandomNumber(),
     });
-    this.generateRandomNumber(this.state.min, this.state.max);
   }
 
   handleGuessClick() {
@@ -92,7 +94,7 @@ class UserInput extends React.Component {
     }
   }
 
-  disableButton() {
+  disableRangeButton() {
     if ( this.state.userMin === '' || this.state.userMax === '' ) {
       return true
     } else {
@@ -111,7 +113,8 @@ class UserInput extends React.Component {
             userMax={this.state.UserMax}
             handleRangeInput={this.handleRangeInput.bind(this)}
             handleRangeClick={this.handleRangeClick.bind(this)}
-            disabled={this.disableButton()}
+            value={this.state.userMax}
+            disabled={this.disableRangeButton()}
            />
 
           <h3 className='last-guess-text'>

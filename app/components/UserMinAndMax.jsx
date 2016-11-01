@@ -8,6 +8,7 @@ const UserMinAndMax = ({ handleRangeInput, handleRangeClick, userMin, userMax, d
         type='number'
         placeholder='min'
         name='userMin'
+        value={userMin}
         onChange={handleRangeInput}
         />
       <input
@@ -15,6 +16,7 @@ const UserMinAndMax = ({ handleRangeInput, handleRangeClick, userMin, userMax, d
         type='number'
         placeholder='max'
         name='userMax'
+        value={userMax}
         onChange={handleRangeInput}
         />
       <button
