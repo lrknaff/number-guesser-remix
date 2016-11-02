@@ -1,8 +1,6 @@
 const React = require('react');
 
-const UserMinAndMax = ({ handleRangeInput, handleRangeClick, disabled, clearInputfields }) => {
-  let userMin = clearInputfields(this.state.userMin)
-  let userMax = clearInputfields(this.state.userMax)
+const UserMinAndMax = ({ handleRangeInput, handleRangeClick, disabled }) => {
 
   return (
     <section className='custom-max-min'>
@@ -11,7 +9,6 @@ const UserMinAndMax = ({ handleRangeInput, handleRangeClick, disabled, clearInpu
         type='number'
         placeholder='min'
         name='userMin'
-        value={userMin}
         onChange={handleRangeInput}
         />
       <input
@@ -19,7 +16,6 @@ const UserMinAndMax = ({ handleRangeInput, handleRangeClick, disabled, clearInpu
         type='number'
         placeholder='max'
         name='userMax'
-        value={clearInputfields}
         onChange={handleRangeInput}
         />
       <button

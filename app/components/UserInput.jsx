@@ -33,10 +33,6 @@ class UserInput extends React.Component {
     this.setState({ [name]: parseInt(value) });
   }
 
-  clearInputfields( value ) {
-    return this.state.value;
-  }
-
   handleRangeClick () {
     this.setState({
       min: this.state.userMin,
@@ -49,7 +45,7 @@ class UserInput extends React.Component {
 
   handleGuessClick() {
     this.setState({
-      guess: this.state.guessInput,
+      guess: parseInt(this.state.guessInput),
       guessInput: ''
     });
     this.displayMessage();
@@ -80,7 +76,7 @@ class UserInput extends React.Component {
         message: 'Guess a number between ' + min + ' and ' + max
       });
     }
-    if ( userGuess === this.state.randomNumber ) {
+    else if ( userGuess === this.state.randomNumber ) {
       this.setState({
         message: 'Correct!',
         min: min -= 10,
@@ -117,7 +113,7 @@ class UserInput extends React.Component {
             userMax={this.state.UserMax}
             handleRangeInput={this.handleRangeInput.bind(this)}
             handleRangeClick={this.handleRangeClick.bind(this)}
-            value={this.clearInputfields.bind(this, this.state.userMin, this.state.userMax)}
+            value={this.handleRangeInput.bind(this)}
             disabled={this.disableRangeButton()}
            />
 
