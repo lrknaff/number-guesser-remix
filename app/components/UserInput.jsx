@@ -127,10 +127,10 @@ class UserInput extends React.Component {
           userMax={this.state.UserMax}
           handleRangeInput={this.handleRangeInput.bind(this)}
           handleRangeClick={this.handleRangeClick.bind(this)}
-          value={this.handleRangeInput.bind(this)}
+          // value={this.handleRangeInput.bind(this)}
           disabled={this.disableRangeButton()}
          />
-         
+
          <h3 className='min-max-text'>
            Guess a number between {this.state.min} and {this.state.max}
          </h3>
