@@ -33,6 +33,10 @@ class UserInput extends React.Component {
     this.setState({ [name]: parseInt(value) });
   }
 
+  clearInputfields( value ) {
+    return this.state.value;
+  }
+
   handleRangeClick () {
     this.setState({
       min: this.state.userMin,
@@ -113,7 +117,7 @@ class UserInput extends React.Component {
             userMax={this.state.UserMax}
             handleRangeInput={this.handleRangeInput.bind(this)}
             handleRangeClick={this.handleRangeClick.bind(this)}
-            value={this.state.userMax}
+            value={this.clearInputfields.bind(this, this.state.userMin, this.state.userMax)}
             disabled={this.disableRangeButton()}
            />
 
@@ -140,7 +144,7 @@ class UserInput extends React.Component {
             className='guess-input-field'
             value={this.state.guessInput}
             onChange={this.handleUserInput.bind(this)}
-            placeholder="You're best guess" />
+            placeholder="Your best guess" />
 
           <section className='buttons'>
             <button
