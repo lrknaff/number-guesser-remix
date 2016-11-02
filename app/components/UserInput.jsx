@@ -108,15 +108,6 @@ class UserInput extends React.Component {
       <main className='container'>
 
         <div className='right-container'>
-          <UserMinAndMax
-            userMin={this.state.UserMin}
-            userMax={this.state.UserMax}
-            handleRangeInput={this.handleRangeInput.bind(this)}
-            handleRangeClick={this.handleRangeClick.bind(this)}
-            value={this.handleRangeInput.bind(this)}
-            disabled={this.disableRangeButton()}
-           />
-
           <h3 className='last-guess-text'>
             Your last guess was:<br />
           </h3>
@@ -131,6 +122,15 @@ class UserInput extends React.Component {
         </div>
 
         <div className='left-container'>
+        <UserMinAndMax
+          userMin={this.state.UserMin}
+          userMax={this.state.UserMax}
+          handleRangeInput={this.handleRangeInput.bind(this)}
+          handleRangeClick={this.handleRangeClick.bind(this)}
+          value={this.handleRangeInput.bind(this)}
+          disabled={this.disableRangeButton()}
+         />
+         
          <h3 className='min-max-text'>
            Guess a number between {this.state.min} and {this.state.max}
          </h3>
