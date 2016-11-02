@@ -30,7 +30,7 @@ class UserInput extends React.Component {
 
   handleRangeInput(e) {
     let { name, value } = e.target;
-    this.setState({ [name]: value });
+    this.setState({ [name]: parseInt(value) });
   }
 
   handleRangeClick () {
@@ -39,7 +39,7 @@ class UserInput extends React.Component {
       max: this.state.userMax,
       userMax: '',
       userMin: '',
-      randomNumber: this.generateRandomNumber(this.state.min, this.state.max)
+      randomNumber: this.generateRandomNumber(this.state.userMin, this.state.userMax)
     });
   }
 
