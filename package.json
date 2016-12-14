@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --inline --hot",
     "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "npm run build&&gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -23,13 +24,14 @@
   "bugs": {
     "url": "https://github.com/lrknaff/numberGuesser-remix/issues"
   },
-  "homepage": "https://github.com/lrknaff/numberGuesser-remix#readme",
+  "homepage": "https://lrknaff.github.io/number-guesser-remix/",
   "devDependencies": {
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react": "^6.11.1",
     "css-loader": "^0.25.0",
+    "gh-pages": "^0.12.0",
     "html-webpack-plugin": "^2.22.0",
     "node-sass": "^3.9.0",
     "sass-loader": "^4.0.1",

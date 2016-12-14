@@ -84,7 +84,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  font-family: helvetica, sans-serif;\n  font-weight: 100;\n  letter-spacing: 2px;\n  text-transform: uppercase; }\n\n#application {\n  background: repeating-linear-gradient(to right, #F92E47, 50px, #3F283D, 50px); }\n\nh3 {\n  position: relative;\n  top: 50px;\n  font-weight: 100;\n  font-size: 30px;\n  color: #5a5959;\n  text-align: center; }\n\nbutton {\n  padding: 20px;\n  border-radius: 2px;\n  outline: none;\n  border: none;\n  background: #982292;\n  color: white;\n  margin: 10px;\n  width: 100px;\n  font-family: helvetica, sans-serif;\n  font-weight: 100;\n  letter-spacing: 2px;\n  text-transform: uppercase; }\n  button:hover {\n    background: #450f42;\n    cursor: pointer; }\n  button:disabled {\n    background: #982292; }\n\n.LikesCounter {\n  height: 300px;\n  width: 300px;\n  margin: 78px auto;\n  background: rgba(255, 255, 255, 0.4); }\n\n.ActionButtons {\n  width: 240px;\n  margin: 100px auto 0 auto; }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nbody {\n  font-family: 'Arvo', sans-serif;\n  font-weight: 400;\n  letter-spacing: 1px; }\n\n#application {\n  background: linear-gradient(to right, #F92E47 50%, #3F283D 50%);\n  height: 100vh; }\n\nh3 {\n  position: relative;\n  top: 25vh;\n  font-weight: 100;\n  font-size: 30px;\n  color: #FFF;\n  text-align: center; }\n\nh3.min-max-text {\n  color: #3F283D;\n  margin-left: 8%;\n  top: 14vh; }\n\nh3.last-guess-text {\n  color: #F92E47;\n  margin-right: 8%; }\n\nbutton {\n  position: relative;\n  padding: 17px;\n  font-size: 0.8em;\n  border-radius: 2px;\n  outline: none;\n  border: none;\n  background: #3F283D;\n  color: white;\n  margin: 10px 7px;\n  width: 100px;\n  font-family: 'Arvo', sans-serif;\n  font-weight: 400;\n  letter-spacing: 1px; }\n  button:hover {\n    cursor: pointer;\n    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5); }\n  button:disabled {\n    background: #3F283D;\n    color: #FFF;\n    cursor: auto;\n    box-shadow: none; }\n\n.right-container {\n  float: right;\n  width: 45%;\n  height: 100vh; }\n\n.left-container {\n  float: left;\n  width: 45%;\n  height: 100vh; }\n\n.number-guess {\n  color: #FFF;\n  font-family: \"Arvo\", serif;\n  font-size: 10em;\n  font-weight: 700;\n  margin-right: 8%;\n  position: relative;\n  top: 32vh;\n  text-align: center; }\n\n.buttons {\n  position: relative;\n  margin-top: 37vh;\n  margin-left: 6%;\n  text-align: center; }\n\n.GuessButton {\n  display: block;\n  margin: 0 auto; }\n\n.submit-max-min-button {\n  margin: 0;\n  padding: 11px;\n  margin-top: 34px; }\n\n.message-text {\n  color: #F92E47;\n  font-size: 1.3em;\n  position: relative;\n  top: 39vh;\n  text-align: center;\n  margin-right: 8%; }\n\n.custom-max-min {\n  text-align: center; }\n\ninput {\n  font-family: \"Arvo\", serif;\n  padding: 10px;\n  border: 1px solid #CCC;\n  outline: none;\n  margin: 5px; }\n\n.guess-input-field {\n  font-size: 1em;\n  float: left;\n  position: relative;\n  top: 23vh;\n  margin-left: 28%;\n  width: 45%;\n  height: 33px; }\n", ""]);
 
 	// exports
 
@@ -420,7 +420,7 @@
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
-	      { className: 'background' },
+	      null,
 	      _react2.default.createElement(_UserInput2.default, null)
 	    );
 	  }
@@ -4631,6 +4631,8 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -4648,7 +4650,7 @@
 	    var _this = _possibleConstructorReturn(this, (UserInput.__proto__ || Object.getPrototypeOf(UserInput)).call(this));
 
 	    _this.state = {
-	      randomNumber: '',
+	      randomNumber: 0,
 	      guessInput: '',
 	      guess: '',
 	      min: 0,
@@ -4660,23 +4662,17 @@
 	  }
 
 	  _createClass(UserInput, [{
+	    key: 'generateRandomNumber',
+	    value: function generateRandomNumber() {
+	      var min = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+	      var max = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 10;
+
+	      return Math.floor(Math.random() * (max - min) + min);
+	    }
+	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      this.generateRandomNumber(this.state.min, this.state.max);
-	    }
-	  }, {
-	    key: 'generateRandomNumber',
-	    value: function generateRandomNumber(min, max) {
-	      var randomNumber = Math.floor(Math.random() * (max - min) + min);
-	      this.setState({ randomNumber: randomNumber });
-	    }
-	  }, {
-	    key: 'generateNewRandomNumber',
-	    value: function generateNewRandomNumber(min, max) {
-	      var userGuess = parseInt(this.state.guessInput);
-	      var newRandomNumber = Math.floor(Math.random() * (max - min) + min);
-
-	      userGuess === this.state.randomNumber ? this.setState({ randomNumber: newRandomNumber }) : this.setState({ randomNumber: this.state.randomNumber });
+	      this.setState({ randomNumber: this.generateRandomNumber() });
 	    }
 	  }, {
 	    key: 'handleUserInput',
@@ -4684,32 +4680,33 @@
 	      this.setState({ guessInput: e.target.value });
 	    }
 	  }, {
-	    key: 'handleMinInput',
-	    value: function handleMinInput(e) {
-	      var userMin = parseInt(e.target.value);
-	      this.setState({ userMin: userMin });
-	    }
-	  }, {
-	    key: 'handleMaxInput',
-	    value: function handleMaxInput(e) {
-	      var userMax = parseInt(e.target.value);
-	      this.setState({ userMax: userMax });
-	    }
-	  }, {
-	    key: 'handleMinMaxClick',
-	    value: function handleMinMaxClick() {
-	      this.setState({ min: this.state.userMin, max: this.state.userMax });
+	    key: 'handleRangeInput',
+	    value: function handleRangeInput(e) {
+	      var _e$target = e.target,
+	          name = _e$target.name,
+	          value = _e$target.value;
 
-	      this.generateRandomNumber(this.state.min, this.state.max);
+	      this.setState(_defineProperty({}, name, parseInt(value)));
+	    }
+	  }, {
+	    key: 'handleRangeClick',
+	    value: function handleRangeClick() {
+	      this.setState({
+	        min: this.state.userMin,
+	        max: this.state.userMax,
+	        userMax: '',
+	        userMin: '',
+	        randomNumber: this.generateRandomNumber(this.state.userMin, this.state.userMax)
+	      });
 	    }
 	  }, {
 	    key: 'handleGuessClick',
 	    value: function handleGuessClick() {
-	      this.setState({ guess: this.state.guessInput, guessInput: '' });
+	      this.setState({
+	        guess: parseInt(this.state.guessInput),
+	        guessInput: ''
+	      });
 	      this.displayMessage();
-	      this.increaseMax();
-	      this.decreaseMin();
-	      this.generateNewRandomNumber(this.state.min, this.state.max);
 	    }
 	  }, {
 	    key: 'handleClearClick',
@@ -4719,8 +4716,14 @@
 	  }, {
 	    key: 'handleResetClick',
 	    value: function handleResetClick() {
-	      var randomNumber = Math.floor(Math.random() * (10 - 0) + 0);
-	      this.setState({ guessInput: '', guess: '', randomNumber: randomNumber, message: '', min: 0, max: 10 });
+	      this.setState({
+	        guessInput: '',
+	        guess: '',
+	        randomNumber: this.generateRandomNumber(),
+	        message: '',
+	        min: 0,
+	        max: 10
+	      });
 	    }
 	  }, {
 	    key: 'displayMessage',
@@ -4729,23 +4732,35 @@
 	      var min = this.state.min;
 	      var max = this.state.max;
 
-	      userGuess > max ? this.setState({ message: 'Guess a number between ' + min + ' and ' + max }) : userGuess < min ? this.setState({ message: 'Guess a number between ' + min + ' and ' + max }) : userGuess === this.state.randomNumber ? this.setState({ message: 'Correct!' }) : userGuess > this.state.randomNumber ? this.setState({ message: 'Too high. Try again.' }) : this.setState({ message: 'Too low. Try again.' });
+	      if (userGuess > max || userGuess < min) {
+	        this.setState({
+	          message: 'Guess a number between ' + min + ' and ' + max
+	        });
+	      } else if (userGuess === this.state.randomNumber) {
+	        this.setState({
+	          message: 'Correct!',
+	          min: min -= 10,
+	          max: max += 10,
+	          randomNumber: this.generateRandomNumber(min, max)
+	        });
+	      } else if (userGuess > this.state.randomNumber) {
+	        this.setState({
+	          message: 'Too high. Try again.'
+	        });
+	      } else {
+	        this.setState({
+	          message: 'Too low. Try again.'
+	        });
+	      }
 	    }
 	  }, {
-	    key: 'increaseMax',
-	    value: function increaseMax() {
-	      var largerMax = this.state.max + 10;
-	      var userGuess = parseInt(this.state.guessInput);
-
-	      userGuess === this.state.randomNumber ? this.setState({ max: largerMax }) : this.setState({ max: this.state.max });
-	    }
-	  }, {
-	    key: 'decreaseMin',
-	    value: function decreaseMin() {
-	      var smallerMin = this.state.min - 10;
-	      var userGuess = parseInt(this.state.guessInput);
-
-	      userGuess === this.state.randomNumber ? this.setState({ min: smallerMin }) : this.setState({ min: this.state.min });
+	    key: 'disableRangeButton',
+	    value: function disableRangeButton() {
+	      if (this.state.userMin === '' || this.state.userMax === '') {
+	        return true;
+	      } else {
+	        return false;
+	      }
 	    }
 	  }, {
 	    key: 'render',
@@ -4754,54 +4769,79 @@
 	      return React.createElement(
 	        'main',
 	        { className: 'container' },
-	        React.createElement(_UserMinAndMax2.default, {
-	          userMin: this.state.UserMin,
-	          userMax: this.state.UserMax,
-	          handleMinInput: this.handleMinInput.bind(this),
-	          handleMaxInput: this.handleMaxInput.bind(this),
-	          handleMinMaxClick: this.handleMinMaxClick.bind(this)
-	        }),
 	        React.createElement(
-	          'h3',
-	          null,
-	          'Youre last guess was:',
-	          React.createElement('br', null),
-	          this.state.guess
+	          'div',
+	          { className: 'right-container' },
+	          React.createElement(
+	            'h3',
+	            { className: 'last-guess-text' },
+	            'Your last guess was:',
+	            React.createElement('br', null)
+	          ),
+	          React.createElement(
+	            'h2',
+	            { className: 'number-guess' },
+	            this.state.guess
+	          ),
+	          React.createElement(
+	            'h4',
+	            { className: 'message-text' },
+	            this.state.message
+	          )
 	        ),
 	        React.createElement(
-	          'h4',
-	          null,
-	          this.state.message
-	        ),
-	        React.createElement('input', {
-	          type: 'number',
-	          className: 'guess-input-field',
-	          value: this.state.guessInput,
-	          onChange: this.handleUserInput.bind(this),
-	          placeholder: 'You\'re best guess' }),
-	        React.createElement(
-	          'button',
-	          {
-	            className: 'GuessButton',
-	            onClick: this.handleGuessClick.bind(this),
-	            disabled: this.state.guessInput === '' ? true : false },
-	          'Guess'
-	        ),
-	        React.createElement(
-	          'button',
-	          {
-	            className: 'ClearButton',
-	            onClick: this.handleClearClick.bind(this),
-	            disabled: this.state.guessInput === '' ? true : false },
-	          'Clear'
-	        ),
-	        React.createElement(
-	          'button',
-	          {
-	            className: 'ResetButton',
-	            onClick: this.handleResetClick.bind(this),
-	            disabled: this.state.min === 0 ? true : false },
-	          'Reset'
+	          'div',
+	          { className: 'left-container' },
+	          React.createElement(_UserMinAndMax2.default, {
+	            userMin: this.state.UserMin,
+	            userMax: this.state.UserMax,
+	            handleRangeInput: this.handleRangeInput.bind(this),
+	            handleRangeClick: this.handleRangeClick.bind(this)
+	            // value={this.handleRangeInput.bind(this)}
+	            , disabled: this.disableRangeButton()
+	          }),
+	          React.createElement(
+	            'h3',
+	            { className: 'min-max-text' },
+	            'Guess a number between ',
+	            this.state.min,
+	            ' and ',
+	            this.state.max
+	          ),
+	          React.createElement('input', {
+	            type: 'number',
+	            className: 'guess-input-field',
+	            value: this.state.guessInput,
+	            onChange: this.handleUserInput.bind(this),
+	            placeholder: 'Your best guess' }),
+	          React.createElement(
+	            'section',
+	            { className: 'buttons' },
+	            React.createElement(
+	              'button',
+	              {
+	                className: 'GuessButton',
+	                onClick: this.handleGuessClick.bind(this),
+	                disabled: this.state.guessInput === '' ? true : false },
+	              'Guess'
+	            ),
+	            React.createElement(
+	              'button',
+	              {
+	                className: 'ClearButton',
+	                onClick: this.handleClearClick.bind(this),
+	                disabled: this.state.guessInput === '' ? true : false },
+	              'Clear'
+	            ),
+	            React.createElement(
+	              'button',
+	              {
+	                className: 'ResetButton',
+	                onClick: this.handleResetClick.bind(this),
+	                disabled: this.state.min === 0 ? true : false },
+	              'Reset'
+	            )
+	          )
 	        )
 	      );
 	    }
@@ -4821,11 +4861,10 @@
 	var React = __webpack_require__(6);
 
 	var UserMinAndMax = function UserMinAndMax(_ref) {
-	  var handleMinInput = _ref.handleMinInput,
-	      handleMaxInput = _ref.handleMaxInput,
-	      handleMinMaxClick = _ref.handleMinMaxClick,
-	      userMin = _ref.userMin,
-	      userMax = _ref.userMax;
+	  var handleRangeInput = _ref.handleRangeInput,
+	      handleRangeClick = _ref.handleRangeClick,
+	      disabled = _ref.disabled;
+
 
 	  return React.createElement(
 	    'section',
@@ -4834,20 +4873,22 @@
 	      className: 'min-input',
 	      type: 'number',
 	      placeholder: 'min',
-	      onChange: handleMinInput
+	      name: 'userMin',
+	      onChange: handleRangeInput
 	    }),
 	    React.createElement('input', {
 	      className: 'max-input',
 	      type: 'number',
 	      placeholder: 'max',
-	      onChange: handleMaxInput
+	      name: 'userMax',
+	      onChange: handleRangeInput
 	    }),
 	    React.createElement(
 	      'button',
 	      {
 	        className: 'submit-max-min-button',
-	        onClick: handleMinMaxClick,
-	        disabled: userMin === 'null' ? true : false
+	        onClick: handleRangeClick,
+	        disabled: disabled
 	      },
 	      'Submit'
 	    )
